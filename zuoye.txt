@@ -1,0 +1,20 @@
+1.
+sudo mysql -u root -p
+create database hello;
+use hello;
+create table shopping_cart( id int primary key not null auto_increment,  account int(12) not null unique, name varchar(10));
+alter table shopping_cart add( love varchar(20), discount_to_remind varchar(20), double_twelve_wish varchar(20));
+insert into shopping_cart(id,account,name,love,discount_to_remind,double_twelve_wish) values(1,12345678,"abc","bag","discount","free"),(2,45678912,"bcd","hat","discount","free"),(3,12345689,"def","book","discount","free"),(4,12345698,"byq","computer","discount","free");
+update shopping_cart set double_twelve_wish="computer" where id=1;
+delete from shopping_cart where love="hat";
+
+
+
+2.
+source /home/huwang/Desktop/hr.sql;
+show tales;
+select * from departments;
+select * from departments order by department_id desc;
+select location_id,count(location_id) from departments group by location_id;
+select location_id,max(department_id) from departments group by location_id having count(location_id)>1;
+select * from departments where department_id in (select max(department_id) from departments group by location_id having count(location_id)>1);

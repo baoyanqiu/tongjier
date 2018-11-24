@@ -1,0 +1,23 @@
+1.
+sudo mysql -u root -p
+show databases;
+use hello;
+create table user(id int not null primary key auto_increment,name varchar(20),mode set("app","pc","ipad"),logintime datetime);
+insert into user(id,name,mode,logintime) values (1,"abc","app","2018-11-12"),(2,"bcd","pc","2018-11-18"),(3,"cde","ipad","2018-11-23");
+select case when abs(datediff(logintime,now()))>30 then "niqusiba" when abs(datediff(logintime,now()))>9 then "nitemedehuibuhuilai" when abs(datediff(logintime,now()))>7 then "nitemedehuibuhuilai" end from user;
+
+
+2.
+create table film(id int not null primary key auto_increment,filmname varchar(20),year int,director varchar(10),score int);
+insert into film(id,filmname,year,director,score) values(1,"wumingzhibei",2018,"raoxiaozhi",8),(2,"wudipohuaiwang",2018,"feier",9),(3,"gangqinjia",2018,"luoman",9);
+select * from film where director like "%rao%";
+select * from film where filmname like "%jia%";
+select * from film where year like 2018;
+select * from film where score like 9;
+
+
+3.
+create table collect(id int not null auto_increment primary key,collectname varchar(20));
+alter table collect add(addcollect varchar(10),canclecollect varchar(10));
+insert into collect(id,collectname,addcollect,canclecollect) values(1,"book","yes","no"),(2,"shoes","yes","no"),(3,"cap","no","yes");
+
